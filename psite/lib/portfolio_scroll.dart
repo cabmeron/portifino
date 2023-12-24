@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:psite/section_scr2.dart';
+import 'package:psite/section_scr3.dart';
 import 'title_section.dart';
+import 'about_me_old.dart';
 import 'about_me.dart';
+import 'section_scr_1.dart';
 
 class PortfolioPage extends StatefulWidget {
   const PortfolioPage({super.key});
@@ -40,26 +44,18 @@ class _PortfolioPageState extends State<PortfolioPage> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         controller: _scrollController,
-        child: Column(
+        child: const Column(
           children: [
             IntroSectionWidget(title: 'Section 1'),
-            SizedBox(
-              height: 355,
-              child: DecoratedBox(
-                decoration: BoxDecoration(color: Colors.white),
-              ),
-            ),
-            if (showAboutMe)
-              AboutMeWidget()
-            else
-              ElevatedButton(
-                onPressed: showAboutMeSection,
-                child: const Text('Show About Me'),
-              ),
-            // IntroSectionWidget(title: 'Section 2'),
+            SectionSpacer1(),
+            SectionSpacer3(),
+            // SectionSpacer2(),
+            AboutMeSectionNEW()
           ],
         ),
       ),
@@ -81,35 +77,7 @@ class IntroSectionWidget extends StatelessWidget {
           Expanded(
             flex: 1,
             child: IntroductionWidget(),
-          )
+          ),
         ]));
   }
 }
-
-//  @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         height: 710,
-//         color: Colors.grey,
-//         child: Row(children: [
-//           Expanded(
-//             flex: 1,
-//             child: Container(
-//               color: Colors.blue,
-//               child: const Center(
-//                 child: Text("Testing"),
-//               ),
-//             ),
-//           ),
-//           Expanded(
-//               flex: 1,
-//               child: Container(
-//                   padding: const EdgeInsets.all(16.0),
-//                   child: const Center(
-//                       child: Text(
-//                     "TESTING",
-//                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-//                   ))))
-//         ]));
-//   }
-// }
